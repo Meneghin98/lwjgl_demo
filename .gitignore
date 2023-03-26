@@ -11,8 +11,7 @@ target/
 *.iws
 *.iml
 *.ipr
-/.idea/encodings.xml
-/.idea/jpa-buddy.xml
+/.idea/
 
 ### Eclipse ###
 .apt_generated
