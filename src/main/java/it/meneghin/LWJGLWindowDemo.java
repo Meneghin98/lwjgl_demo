@@ -14,7 +14,7 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryStack.stackPush;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
-public class Main {
+public class LWJGLWindowDemo {
     // The window handle
     private long window;
 
@@ -111,7 +111,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        new Main().run();
+        new LWJGLWindowDemo().run();
     }
 
 }
