@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a6d607f-1482-4b90-a686-b232350cfdd2" name="Changes" comment="Getting Started">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="5a6d607f-1482-4b90-a686-b232350cfdd2" name="Changes" comment="Configs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/meneghin/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/meneghin/LWJGLWindowDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/meneghin/GLFWWindowDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/meneghin/GLFWWindowDemo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,13 +131,40 @@
       <option name="project" value="LOCAL" />
       <updated>1679759412976</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="GlFW Demo">
+      <created>1679850339592</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679850339592</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Configs">
+      <created>1679850350755</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679850350755</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Setup" />
     <MESSAGE value="First execution" />
     <MESSAGE value="Getting Started" />
-    <option name="LAST_COMMIT_MESSAGE" value="Getting Started" />
+    <MESSAGE value="GlFW Demo" />
+    <MESSAGE value="Configs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configs" />
   </component>
 </project>
