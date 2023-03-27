@@ -3,7 +3,12 @@ package it.meneghin;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.IntBuffer;
+import java.util.stream.Collectors;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
@@ -35,6 +40,17 @@ public class GLFWWindowDemo
 			""";
 
 
+	private static String loadShader(String fileName)
+	{
+		try (InputStream in = ClassLoader.getSystemResourceAsStream(fileName);
+		     BufferedReader reader = new BufferedReader(new InputStreamReader(in)))
+		{
+			return reader.lines().collect(Collectors.joining("\n"));
+		} catch (IOException e)
+		{
+			throw new IllegalStateException("Failed to read shader source file",e); //
+		}
+	}
 
 	private static int compileShader(int type, String source)
 	{
@@ -56,11 +72,11 @@ public class GLFWWindowDemo
 		return id;
 	}
 
-	private static int createShader()
+	private static int createShader(String vertexShader, String fragmentShader)
 	{
 		int programId = glCreateProgram();
-		int vShaderId = compileShader(GL_VERTEX_SHADER, GLFWWindowDemo.VERTEX_SHADER);
-		int fShaderId = compileShader(GL_FRAGMENT_SHADER, GLFWWindowDemo.FRAGMENT_SHADER);
+		int vShaderId = compileShader(GL_VERTEX_SHADER, vertexShader);
+		int fShaderId = compileShader(GL_FRAGMENT_SHADER, fragmentShader);
 
 		glAttachShader(programId, vShaderId);
 		glAttachShader(programId, fShaderId);
@@ -112,7 +128,13 @@ public class GLFWWindowDemo
 		glVertexAttribPointer(0, 2, GL_FLOAT, false, 2* Float.BYTES, 0); // informazioni dell'attributo
 
 		//Shaders
-		int shaderProgram = createShader(); // Creo Vertex e Fragment Shader
+		String vertexShader = loadShader("shader/Basic.vert");
+		String fragmentShader = loadShader("shader/Basic.frag");
+
+//		String vertexShader = VERTEX_SHADER;
+//		String fragmentShader = FRAGMENT_SHADER;
+
+		int shaderProgram = createShader(vertexShader, fragmentShader); // Creo Vertex e Fragment Shader
 		glUseProgram(shaderProgram); // Dico di utilizzare le shader create
 
 		while (!glfwWindowShouldClose(window))
@@ -126,6 +148,7 @@ public class GLFWWindowDemo
 			glfwPollEvents();
 		}
 
+		glDeleteProgram(shaderProgram); // Rimuovere le shader una volta terminato di usarle
 		glfwTerminate();
 	}
 
