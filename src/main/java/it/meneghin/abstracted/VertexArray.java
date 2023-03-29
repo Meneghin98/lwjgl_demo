@@ -8,7 +8,7 @@ import static org.lwjgl.opengl.GL20.glVertexAttribPointer;
 import static org.lwjgl.opengl.GL30.glDeleteVertexArrays;
 import static org.lwjgl.opengl.GL30.*;
 
-public class VertexArray implements AutoCloseable, Bindable
+public class VertexArray implements AutoCloseable
 {
 
 	private final int rendererID; // unsigned int
@@ -38,13 +38,11 @@ public class VertexArray implements AutoCloseable, Bindable
 	}
 
 
-	@Override
 	public void bind()
 	{
 		glBindVertexArray(this.rendererID);
 	}
 
-	@Override
 	public void unbind()
 	{
 		glBindVertexArray(0);

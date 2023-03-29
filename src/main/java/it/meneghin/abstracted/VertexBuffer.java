@@ -7,7 +7,7 @@ import java.nio.*;
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL15.glBufferData;
 
-public class VertexBuffer implements AutoCloseable, Bindable
+public class VertexBuffer implements AutoCloseable
 {
 
 	private final int rendererID; // unsigned int
@@ -90,13 +90,11 @@ public class VertexBuffer implements AutoCloseable, Bindable
 
 
 
-	@Override
 	public void bind()
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, this.rendererID);
 	}
 
-	@Override
 	public void unbind()
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, 0);

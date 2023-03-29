@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL20.glDeleteShader;
 
-public class Shader implements AutoCloseable, Bindable
+public class Shader implements AutoCloseable
 {
 	private final Map<String, Integer> uniformLocationCache = new HashMap<>();
 	private final String vertexShaderPath_debug;
@@ -34,13 +34,11 @@ public class Shader implements AutoCloseable, Bindable
 	}
 
 
-	@Override
 	public void bind()
 	{
 		glUseProgram(this.rendererID);
 	}
 
-	@Override
 	public void unbind()
 	{
 		glUseProgram(0);
