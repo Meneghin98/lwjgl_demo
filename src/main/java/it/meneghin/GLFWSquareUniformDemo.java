@@ -119,9 +119,6 @@ public class GLFWSquareUniformDemo
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices, GL_STATIC_DRAW);
 
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 2, GL_FLOAT, false, 2 * Float.BYTES, 0);
-
 		//Shaders
 		String vertexShader = loadShader("shader/Basic.vert");
 		String fragmentShader = loadShader("shader/BasicWithUniform.frag");
