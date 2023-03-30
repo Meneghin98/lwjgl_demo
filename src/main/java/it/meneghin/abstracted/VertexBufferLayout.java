@@ -26,17 +26,17 @@ public class VertexBufferLayout
 	public void pushFloat(int count)
 	{
 		elements.add(new LayoutElement(GL_FLOAT, count, false));
-		stride += getSizeOfType(GL_FLOAT);
+		stride += count * getSizeOfType(GL_FLOAT);
 	}
 	public void pushInt(int count)
 	{
 		elements.add(new LayoutElement(GL_UNSIGNED_INT, count, false));
-		stride += getSizeOfType(GL_UNSIGNED_INT);
+		stride += count * getSizeOfType(GL_UNSIGNED_INT);
 	}
 	public void pushByte(int count)
 	{
 		elements.add(new LayoutElement(GL_UNSIGNED_BYTE, count, true));
-		stride += getSizeOfType(GL_UNSIGNED_BYTE);
+		stride += count * getSizeOfType(GL_UNSIGNED_BYTE);
 	}
 
 	public int getStride()

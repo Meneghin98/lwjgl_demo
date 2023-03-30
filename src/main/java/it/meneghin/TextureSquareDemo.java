@@ -63,8 +63,8 @@ public class TextureSquareDemo
 		VertexBuffer vb = new VertexBuffer(vertices);
 
 		//VB Attributes
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 2, GL_FLOAT, false, 2 * Float.BYTES, 0);
+//		glEnableVertexAttribArray(0);
+//		glVertexAttribPointer(0, 2, GL_FLOAT, false, 2 * Float.BYTES, 0);
 
 		VertexBufferLayout layout = new VertexBufferLayout();
 		layout.pushFloat(2);
@@ -76,7 +76,7 @@ public class TextureSquareDemo
 
 		//Shaders
 		Shader shader = new Shader("shader/BasicWithTexture.vert", "shader/BasicWithTexture.frag");
-		shader.setUniform4f("u_Color", 0.6f, 0.2f, 0.8f, 1.0f);
+//		shader.setUniform4f("u_Color", 0.6f, 0.2f, 0.8f, 1.0f);
 
 		Texture texture = new Texture("texture/propngtools-random-img.png");
 		shader.setUniform1i("u_Texture", 0);
@@ -97,7 +97,7 @@ public class TextureSquareDemo
 			renderer.clear();
 
 			shader.bind();
-			shader.setUniform4f("u_Color", redChannel, 0.2f, 0.8f, 1.0f);
+//			shader.setUniform4f("u_Color", redChannel, 0.2f, 0.8f, 1.0f);
 
 			renderer.draw(va, ib, shader);
 
