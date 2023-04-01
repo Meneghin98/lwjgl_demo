@@ -1,12 +1,14 @@
 package it.meneghin.abstracted;
 
 import org.jetbrains.annotations.NotNull;
+import org.joml.Matrix4f;
 import org.lwjgl.BufferUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.HashMap;
 import java.util.Map;
@@ -56,6 +58,11 @@ public class Shader implements AutoCloseable
 		glUniform4f(location, f0, f1, f2, f3);
 	}
 
+	public void setUniformMat4f(String name, Matrix4f matrix)
+	{
+		FloatBuffer matrixBuffer = BufferUtils.createFloatBuffer(16);
+		glUniformMatrix4fv(getUniformLocation(name), false, matrix.get(matrixBuffer)); //false perché JOML usa lo stesso formato di matrici usato da OpenGL (Column major)
+	}
 
 
 	private int getUniformLocation(final String name)
@@ -137,4 +144,6 @@ public class Shader implements AutoCloseable
 			throw new IllegalStateException("Failed to read shader source file", e); //
 		}
 	}
+
+
 }
