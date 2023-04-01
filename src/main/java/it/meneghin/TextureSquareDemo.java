@@ -5,8 +5,7 @@ import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 
 import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.opengl.GL11.GL_FLOAT;
-import static org.lwjgl.opengl.GL11.GL_VERSION;
+import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL46.glEnableVertexAttribArray;
 import static org.lwjgl.opengl.GL46.glVertexAttribPointer;
 import static org.lwjgl.system.MemoryUtil.NULL;
@@ -59,6 +58,10 @@ public class TextureSquareDemo
 				2,3,0 // 2nd Triangle
 		};
 
+		// Blending, potrebbe non essere necessario
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 		VertexArray va = new VertexArray();
 		VertexBuffer vb = new VertexBuffer(vertices);
 
@@ -78,7 +81,8 @@ public class TextureSquareDemo
 		Shader shader = new Shader("shader/BasicWithTexture.vert", "shader/BasicWithTexture.frag");
 //		shader.setUniform4f("u_Color", 0.6f, 0.2f, 0.8f, 1.0f);
 
-		Texture texture = new Texture("texture/propngtools-random-img.png");
+		Texture texture = new Texture("texture/random-1.png");
+		texture.bind();
 		shader.setUniform1i("u_Texture", 0);
 
 
